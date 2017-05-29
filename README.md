@@ -3,7 +3,7 @@ Tic-tac-toe
 
 XO is the implementation of tic-tac-toe in a large field. The application implements authorization based on OAuth2, as well as the ability multi-rooms. Based on this implementation, you can easily create any other game in which there are rooms with any number of players in it.
 
-The application is deployed here: xo.munlightshadow.ru
+The application is deployed here: <a href="http://xo.munlightshadow.ru">xo.munlightshadow.ru</a>
 
 The application is divided into 2 parts: server and client.
 
