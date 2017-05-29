@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "lib": [
+            "dom",
+            "es6"
+        ],
+        "typeRoots": [
+            "../typings/globals"
+        ],
+        "types": [
+            "hammerjs",
+            "jasmine",
+            "node",
+            "source-map",
+            "uglify-js",
+            "webpack"
+        ]
+    },
+    "exclude": [
+        "../node_modules",
+        "../typings/main.d.ts",
+        "../typings/main"
+    ],
+    "filesGlob": [
+        "../src/**/*.ts",
+        "../test/**/*.ts",
+        "!../node_modules/**/*.ts",
+        "../typings/index.d.ts"
+    ]
+}

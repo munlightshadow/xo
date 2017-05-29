@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+
+    <!-- Ensure that everything scales appropriately on a mobile device -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <!-- Let's borrow a cool looking Font from Google -->
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <div id="gameArea">
+        <!-- This is where the templates defined below will be used -->
+    </div>
+
+    <!-- Стартовая страница с авторизацией и регистрацией -->
+    <script id="main-template" type="text/template">
+        <div class="titleWrapper">
+
+            <div class="title">
+                game_ipr
+            </div>
+
+            <div class="buttons">
+                <button id="btnAuthUser" class="btn left">Auth</button>
+                <button id="btnRegUser" class="btn right">Reg</button>
+                <div style="clear:both"></div>
+            </div>
+
+        </div>
+    </script>
+
+    <!-- Cтраница регистрации пользователя -->
+    <script id="registration-template" type="text/template">
+        <div class="titleWrapper">
+            <div id="errorRegistration"></div>
+
+            <label for="inputLogin">login:</label>
+            <input id="inputLogin" type="text"/>
+            <br>
+            <label for="inputPass">pass:</label>
+            <input id="inputPass" type="text"/>
+            <br>
+            <label for="inputMail">Mail:</label>
+            <input id="inputMail" type="text"/>
+            <br>
+            <div class="buttons">
+                <button id="btnSubmitRegUser" class="btn left">Submit</button>
+                <button id="backToReg" class="btn right">Back</button>
+                <div style="clear:both"></div>
+            </div>
+
+        </div>
+    </script>
+
+    <!-- Cтраница авторизации пользователя -->
+    <script id="authorization-template" type="text/template">
+        <div class="titleWrapper">
+            <div id="errorAuthorization"></div>
+
+            <label for="inputLogin">login:</label>
+            <input id="inputLogin" type="text"/>
+            <br>
+            <label for="inputPass">pass:</label>
+            <input id="inputPass" type="text"/>
+            <br>
+            <div class="buttons">
+                <button id="btnSubmitAuthUser" class="btn left">Submit</button>
+                <button id="backToReg" class="btn right">Back</button>
+                <div style="clear:both"></div>
+            </div>
+
+        </div>
+    </script>
+
+
+
+    <!-- Main Title Screen that appears when the page loads for the first time -->
+    <script id="intro-screen-template" type="text/template">
+
+        <div class="titleWrapper">
+
+            <div class="title">
+                game_ipr
+            </div>
+
+            <div class="buttons">
+                <button id="btnCreateGame" class="btn left">CREATE</button>
+                <button id="btnJoinGame" class="btn right">JOIN</button>
+                <div style="clear:both"></div>
+                <button id="btnLogOut" style="margin-top:20px;" class="btn left">LogOut</button>
+            </div>
+
+        </div>
+
+    </script>
+
+    <!-- This screen appears when a user clicks "CREATE" on the Title Screen -->
+    <script id="create-game-template" type="text/template">
+        <div class="createGameWrapper">
+            <div id="log_area"></div>
+            <div class="info">Open this site on your mobile device:</div>
+            <div id="gameURL" class="infoBig">Error!</div>
+
+            <div class="info">Then click <strong>JOIN</strong> and <br/> enter the following Game ID:</div>
+            <div id="spanNewGameCode" class="gameId">Error!</div>
+            <button id="backToIntroScreenWithLeaveRoom" class="btn left">Back</button>
+            <div id="playersWaiting"></div>
+        </div>
+    </script>
+
+    <!-- This scrreen appears when a player clicks "JOIN" on the Title Screen -->
+    <script id="join-game-template" type="text/template">
+        <div class="joinGameWrapper">
+            <div id="log_area"></div>
+            <div class="info select_room">
+                <label>Games:</label>
+                <ul id="ulGames">
+                </ul>
+                <label for="inputGameId">Game ID:</label>
+                <input id="inputGameId" type="text"/>
+            </div>
+            <div class="info buttons">
+                <button id="btnStart" class="btn left">Start</button>
+                <button id="backToIntroScreen" class="btn right">Back</button>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+    </script>
+
+    <!-- Шаблон для списка комнат -->
+    <script id="template-update-free-room" type="text/template">
+            {% for room in rooms %}
+                <li class="js_game_id">{{ room }}</li>
+            {% endfor %}
+    </script>
+
+    <!-- Страница с игровой логикой -->
+    <script id="game-logic-main" type="text/template">
+        <button id="btnGLMainWin" class="btn left">WIN!!!!</button>
+        Нажми на кнопку
+    </script>
+
+    <!-- Страница Окончания игры -->
+    <script id="game-logic-finish" type="text/template">
+        <div id="game-logic-win-text"></div>
+        <button id="backToIntroScreenWithLeaveRoom" class="btn left">Back</button>
+    </script>
+
+    <!-- JavaScript Libraries -->
+
+    <!-- jQuery! -->
+    <script src="libs/jquery-2.0.2.min.js"></script>
+
+    <!-- TextFit resizes text to fill a container.
+        It's used so the titles and game words fit properly on any size screen.
+        https://github.com/STRML/textFit   -->
+    <script src="libs/textFit.min.js"></script>
+
+    <!-- FastClick is used to eliminate the 300ms delay when clicking items on a mobile device
+        https://github.com/ftlabs/fastclick -->
+    <script src="libs/fastclick.js"></script>
+
+    <!-- шаблонизация -->
+    <script src="libs/twig.min.js"></script>
+
+    <!-- If Socket.IO is used with Express, then the /socket.io/ path will
+        serve the proper Socket.IO javascript files used by the browser -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- app.js is where all the client-side Anagrammatix game logic -->
+    <script src="app.js"></script>
+
+</body>
+</html>

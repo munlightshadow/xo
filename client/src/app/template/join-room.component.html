@@ -1,0 +1,28 @@
+<div class="joinGameWrapper">
+    <div id="log_area"></div>
+    <div class="info select_room">
+        <label>Games:</label>
+        <ul>
+         <li *ngFor="let room of rooms">
+            {{ room }}
+         </li><br>
+        </ul>
+        <div *ngIf="!started">
+            <label for="inputGameId">Game ID:</label>
+            <input [(ngModel)]="curGame" id="inputGameId" type="text"/>
+        </div>
+        <div *ngIf="started">
+            <label for="inputGameId">Selected ID:{{curGame}}</label>
+        </div>        
+    </div>
+    <div *ngIf="!started" class="info buttons">
+        <button (click)="joinGame()" id="btnStart" class="btn left">Start</button>
+        <button routerLink="/" id="backToIntroScreen" class="btn right">Back</button>
+        <div style="clear:both"></div>
+    </div>
+    <div *ngIf="started" class="info buttons">
+        <div id="log_area">{{log}}</div>
+        <button (click)="backToJoin()" id="backToIntroScreen" class="btn right">Back</button>
+        <div style="clear:both"></div>
+    </div>    
+</div>

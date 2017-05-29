@@ -1,0 +1,13 @@
+<div *ngIf="!isset_auth" class="buttons">
+  <button routerLink="/auth" id="btnAuthUser" class="btn left">Auth</button>
+  <button routerLink="/reg" id="btnRegUser" class="btn right">Reg</button>
+  <div style="clear:both"></div>
+</div>
+
+<div *ngIf="isset_auth" class="buttons">
+{{welcom}} <br><br>
+	<button routerLink="/create-room" id="btnCreateGame" class="btn left">CREATE</button>
+	<button routerLink="/join-room" id="btnJoinGame" class="btn right">JOIN</button>
+	<div style="clear:both"></div>
+	<button (click)="logoutUser()" id="btnLogOut" style="margin-top:20px;" class="btn left">LogOut</button>
+</div>

@@ -1,0 +1,16 @@
+{
+	"port": "8080",
+	"token" : {
+		"token_life_time" : 3600,
+		"token_refresh_life_time" : 259200
+	},
+	"connect": {
+		"host"     : "localhost",
+		"user"     : "root",
+		"password" : "0000",
+		"database" : "game" 
+	},
+	"game": {
+		"count_player_in_room" : 2
+	}
+}

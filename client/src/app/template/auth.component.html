@@ -1,0 +1,17 @@
+<div class="titleWrapper">
+    <h1>{{title}}</h1>
+    <div id="errorAuthorization">{{errorAuth}}</div>
+
+    <label for="inputLogin">login:</label>
+    <input [(ngModel)]="curLogin" id="inputLogin"/>
+    <br>
+    <label for="inputPass">pass:</label>
+    <input [(ngModel)]="curPass" id="inputPass"/>
+    <br>
+    <div class="buttons">
+        <button (click)="submitAuthUser()" id="btnSubmitAuthUser" class="btn left">Submit</button>
+        <button routerLink="/" id="backToReg" class="btn right">Back</button>
+        <div style="clear:both"></div>
+    </div>
+
+</div>

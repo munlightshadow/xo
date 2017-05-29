@@ -1,0 +1,20 @@
+<div class="titleWrapper">
+    <h1>{{title}}</h1>
+    <div id="errorRegistration">{{errorReg}}</div>
+
+    <label for="inputLogin">login:</label>
+    <input [(ngModel)]="curLogin" id="inputLogin" type="text"/>
+    <br>
+    <label for="inputPass">pass:</label>
+    <input [(ngModel)]="curPass" id="inputPass" type="text"/>
+    <br>
+    <label for="inputMail">Mail:</label>
+    <input [(ngModel)]="curEmail" id="inputMail" type="text"/>
+    <br>
+    <div class="buttons">
+        <button (click)="submitRegUser()" id="btnSubmitRegUser" class="btn left">Submit</button>
+        <button routerLink="/" id="backToReg" class="btn right">Back</button>
+        <div style="clear:both"></div>
+    </div>
+
+</div>

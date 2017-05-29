@@ -1,0 +1,20 @@
+{
+  "name": "game_ipr",
+  "description": "game_ipr Multiplayer Game",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "socket.io": "2.0",
+    "mysql": "*",
+    "md5": "*",
+    "config.json": "*",
+    "roomdata": "*"
+  },
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "node index.js",
+    "start": "node index.js"
+  }
+}
